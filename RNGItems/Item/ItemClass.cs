@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -96,6 +97,25 @@ namespace RNGItems
                 return typeModifier[rand.Next(0, typeModifier.Count)];
             else
                 return "";
+        }
+
+        //returns the color based on the quality
+        //most children should override this
+        public virtual Color getColor(string quality)
+        {
+            Color ret;
+            switch (qualities.IndexOf(quality))
+            {
+                case 0: ret = Color.White; break;
+                case 1: ret = Color.Green; break;
+                case 2: ret = Color.Blue; break;
+                case 3: ret = Color.Purple; break;
+                case 4: ret = Color.Orange; break;
+
+                default: ret = Color.White; break;
+            }
+
+            return ret;
         }
     }
 }

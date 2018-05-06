@@ -49,6 +49,10 @@ namespace Test
             //display the item
             testLbl.Text = testItem.ToString();
             Refresh();
+
+            ItemButton button = testItem.getButton();
+            button.Location = new Point(100, 100);
+            Controls.Add(button);
         }
 
         //generates a random stat based on our standardStatGrowth formula

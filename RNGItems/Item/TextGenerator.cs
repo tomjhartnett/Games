@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RNGItems
 {
@@ -12,5 +13,7 @@ namespace RNGItems
         public abstract string getName();
 
         public abstract string getText(Item i);
+
+        public abstract Panel getPanel(Item i, Button b);
     }
 }

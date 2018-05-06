@@ -42,13 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Item.cs" />
-    <Compile Include="ItemClass.cs" />
-    <Compile Include="ItemGenerator.cs" />
-    <Compile Include="StatFormula.cs" />
-    <Compile Include="TextGenerator.cs" />
+    <Compile Include="Item\Item.cs" />
+    <Compile Include="Item\ItemButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Item\ItemClass.cs" />
+    <Compile Include="Item\ItemGenerator.cs" />
+    <Compile Include="Item\ItemPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Stat\StatFormula.cs" />
+    <Compile Include="Item\TextGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stat.cs" />
+    <Compile Include="Stat\Stat.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

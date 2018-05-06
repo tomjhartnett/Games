@@ -29,34 +29,68 @@ namespace RNGItems
         public string typeModifier { get; protected set; }
         public int itemLevel { get; protected set; }
         public string quality { get; protected set; }
+        public Color qualityColor { get; protected set; }
 
         public Item(ItemClass Itemclass, int Itemlevel)
         {
+            //sets the textGenerator to call
             textGenerator = Itemclass.nameGenerator;
+            //sets the name
             name = textGenerator.getName();
+            //sets the itemlevel
             itemLevel = Itemlevel;
+            //gets a random quality
             quality = Itemclass.getRandomQuality();
+            //gets random stats bestowed on wearer
             statsGiven = Itemclass.getRandomStatsGiven(Itemlevel, quality, itemLevel);
+            //gets random stats required to wear the item
             requiredStats = Itemclass.getRandomStatsRequired(Itemlevel, quality, itemLevel);
+            //sets the type
             type = Itemclass.type;
+            //gets a random type modifier
             typeModifier = Itemclass.getRandomTypeModifier();
+            //sets the color of the quality
+            qualityColor = Itemclass.getColor(quality);
         }
 
         public Item(ItemClass Itemclass, int Itemlevel, string Quality)
         {
-            name = Itemclass.nameGenerator.getName();
+            //sets the textGenerator to call
+            textGenerator = Itemclass.nameGenerator;
+            //sets the name
+            name = textGenerator.getName();
+            //sets the itemlevel
             itemLevel = Itemlevel;
+            //sets the quality
             quality = Quality;
+            //gets random stats bestowed on wearer
             statsGiven = Itemclass.getRandomStatsGiven(Itemlevel, quality, itemLevel);
+            //gets random stats required to wear the item
             requiredStats = Itemclass.getRandomStatsRequired(Itemlevel, quality, itemLevel);
+            //sets the type
             type = Itemclass.type;
+            //gets a random type modifier
             typeModifier = Itemclass.getRandomTypeModifier();
+            //sets the color of the quality
+            qualityColor = Itemclass.getColor(quality);
         }
 
         //replaces the default ToString to be a better visual
         public override string ToString()
         {
             return textGenerator.getText(this);
+        }
+
+        //gets the set of labels that describes the item
+        public Panel getPanel(Button b)
+        {
+            return textGenerator.getPanel(this, b);
+        }
+
+        //get the button for this item
+        public ItemButton getButton()
+        {
+            return new ItemButton(this);
         }
     }
 }
