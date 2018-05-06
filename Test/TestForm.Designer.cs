@@ -36,9 +36,8 @@
             this.testLbl.AutoSize = true;
             this.testLbl.Location = new System.Drawing.Point(379, 271);
             this.testLbl.Name = "testLbl";
-            this.testLbl.Size = new System.Drawing.Size(119, 13);
+            this.testLbl.Size = new System.Drawing.Size(0, 13);
             this.testLbl.TabIndex = 0;
-            this.testLbl.Text = "Fuck you for testing this";
             // 
             // TestForm
             // 

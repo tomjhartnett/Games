@@ -23,26 +23,38 @@ namespace Test
             initItemTest();
         }
 
-        public void initItemTest()
+        private void initItemTest()
         {
-            Dictionary<string, List<string>> typesAndNames = new Dictionary<string, List<string>>();
+            //generate all qualities
+            List<string> qualities = new List<string>() { "Common", "Uncommon", "Rare", "Epic", "Legendary" };
+            //generate some random growth formula to test
+            StandardStatGrowth growth = new StandardStatGrowth();
 
-            typesAndNames.Add("Sword", new List<string>() { "Greatsword", "Blade" });
-            typesAndNames.Add("Bow", new List<string>() { "Longbow", "Shortbow" });
-            typesAndNames.Add("Ring", new List<string>() { "Signet Ring", "Band" });
-            typesAndNames.Add("Helmet", new List<string>() { "Halfhelm", "Full Helm" });
+            //typesAndNames is all of our itemClasses for this project
+            List<ItemClass> typesAndNames = new List<ItemClass>();
+            //the ring is generated from the default item class because it has no special display/stats/etc
+            ItemClass ring = new ItemClass("Ring", new RingNameGenerator(), new List<string>() { }, qualities, 
+                new List<Stat>() { getRandomStandardGrowthStat("Intelligence") }, 
+                new List<Stat>() { getRandomStandardGrowthStat("Strength"), getRandomStandardGrowthStat("Stamina") }, 
+                new List<Stat>() { }, 
+                new List<Stat>() { getRandomStandardGrowthStat("Intelligence") } );
+            typesAndNames.Add(ring);
 
-            ItemGenerator testGenerator = new ItemGenerator(typesAndNames, "fake", "fake", "fake", "fake");
 
-            Item testItem = testGenerator.getRandomItem(100, Item.Type.SWORD, Item.TypeModifier.TWO_HANDED);
+            //get the generator and generate an item
+            ItemGenerator testGenerator = new ItemGenerator(typesAndNames);
+            Item testItem = testGenerator.getRandomItem(ring, 100);
 
+
+            //display the item
             testLbl.Text = testItem.ToString();
             Refresh();
+        }
 
-
-            Button testButton = testItem.getButton();
-            testButton.Location = new Point(100, 100);
-            Controls.Add(testButton);
+        //generates a random stat based on our standardStatGrowth formula
+        private Stat getRandomStandardGrowthStat(string name)
+        {
+            return new Stat(name, new StandardStatGrowth());
         }
     }
 }

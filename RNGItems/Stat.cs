@@ -8,25 +8,25 @@ namespace RNGItems
 {
     /*
      * This class represents a Stat.
-     * It is meant to be flexible so any project can put its own stats in.
-     * The class has a name which is a string representation of the name.
-     * It also has a referenced stat, which currently is an int (but should probably be changed).
-     * This reference is used to keep track of the the stat, for checks against required amounts to wear the items.
+     * It requires a name and a formula.
+     * The default amount is 0, and when evaluated, will get a number based on the formula and multiplier.
      */
     public class Stat
     {
         public string name { get; private set; }
-        public int referencedStat { get; private set;}
+        public int amount { get; private set; }
+        private StatFormula formula { get; set; }
 
-        public Stat(string Name)
+        public Stat(string Name, StatFormula Formula)
         {
             name = Name;
+            formula = Formula;
+            amount = 0;
         }
 
-        public Stat(string Name, ref int ReferencedStat)
+        public void evaluateStat(int mult, int itemlevel)
         {
-            name = Name;
-            referencedStat = ReferencedStat;
+            amount = formula.getRandomAmount(itemlevel) * mult;
         }
     }
 }
