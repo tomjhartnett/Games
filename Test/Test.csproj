@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImageLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestTypes\StandardStatGrowth.cs" />
@@ -85,6 +86,35 @@
       <Project>{d84859e9-b72f-4ca8-acdf-f21df4e45ba4}</Project>
       <Name>RNGItems</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\back\1.jpg" />
+    <Content Include="Images\back\2.jpg" />
+    <Content Include="Images\chest\1.jpg" />
+    <Content Include="Images\chest\2.jpg" />
+    <Content Include="Images\empty.png" />
+    <Content Include="Images\feet\%24 %281%29.jpg" />
+    <Content Include="Images\feet\%24.jpg" />
+    <Content Include="Images\finger\%24 %282%29.jpg" />
+    <Content Include="Images\finger\%24.jpg" />
+    <Content Include="Images\hands\%24 %281%29.jpg" />
+    <Content Include="Images\hands\%24.jpg" />
+    <Content Include="Images\head\%24 %282%29.jpg" />
+    <Content Include="Images\head\%24.jpg" />
+    <Content Include="Images\legs\%24 %281%29.jpg" />
+    <Content Include="Images\legs\%24.jpg" />
+    <Content Include="Images\mainhand\%24 %282%29.jpg" />
+    <Content Include="Images\mainhand\%24.jpg" />
+    <Content Include="Images\neck\%24 %281%29.jpg" />
+    <Content Include="Images\neck\%24.jpg" />
+    <Content Include="Images\offhand\%24 %282%29.jpg" />
+    <Content Include="Images\offhand\inv_knife_1h_pvpdraenors2_d_01.jpg" />
+    <Content Include="Images\shoulder\%24 %281%29.jpg" />
+    <Content Include="Images\shoulder\%24.jpg" />
+    <Content Include="Images\waist\%24 %282%29.jpg" />
+    <Content Include="Images\waist\%24.jpg" />
+    <Content Include="Images\wrist\%24 %281%29.jpg" />
+    <Content Include="Images\wrist\%24.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

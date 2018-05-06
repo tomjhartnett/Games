@@ -19,6 +19,8 @@ namespace RNGItems
         public TextGenerator nameGenerator { get; private set; }
         //the various materials this object can be
         private List<string> typeModifier { get; set; }
+        //the various materials this object can be
+        private List<Bitmap> images { get; set; }
         //the various qualities or rarities this item can be
         private List<string> qualities { get; set; }
         //the possible stats required to wear this itemclass
@@ -32,10 +34,11 @@ namespace RNGItems
         //our random number generator
         private Random rand = new Random(Guid.NewGuid().GetHashCode());
         
-        public ItemClass(string Type, TextGenerator Namegenerator, List<string> Typemodifier, List<string> Qualities, List<Stat> Possiblerequired, List<Stat> Possiblegiven, List<Stat> Requiredrequired, List<Stat> Requiredgiven)
+        public ItemClass(string Type, TextGenerator Namegenerator, List<string> Typemodifier, List<string> Qualities, List<Bitmap> possibleImages, List<Stat> Possiblerequired, List<Stat> Possiblegiven, List<Stat> Requiredrequired, List<Stat> Requiredgiven)
         {
             type = Type;
             nameGenerator = Namegenerator;
+            images = possibleImages;
             typeModifier = Typemodifier;
             qualities = Qualities;
             possibleRequired = Possiblerequired;
@@ -97,6 +100,13 @@ namespace RNGItems
                 return typeModifier[rand.Next(0, typeModifier.Count)];
             else
                 return "";
+        }
+
+        //the default way to get a random image
+        //most children should override this
+        public virtual Bitmap getRandomImage()
+        {
+            return images[rand.Next(0, images.Count)];
         }
 
         //returns the color based on the quality

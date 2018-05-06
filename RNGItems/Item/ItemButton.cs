@@ -22,7 +22,11 @@ namespace RNGItems
         public ItemButton(Item i) : base()
         {
             item = i;
-            Text = "hello";
+            Image = i.image;
+            AutoSize = true;
+            TabStop = false;
+            FlatStyle = FlatStyle.Flat;
+            FlatAppearance.BorderSize = 0;
 
             MouseEnter += mouseEnter;
         }

@@ -27,6 +27,7 @@ namespace RNGItems
         public string name { get; protected set; }
         public string type { get; protected set; }
         public string typeModifier { get; protected set; }
+        public Bitmap image { get; protected set; }
         public int itemLevel { get; protected set; }
         public string quality { get; protected set; }
         public Color qualityColor { get; protected set; }
@@ -51,6 +52,8 @@ namespace RNGItems
             typeModifier = Itemclass.getRandomTypeModifier();
             //sets the color of the quality
             qualityColor = Itemclass.getColor(quality);
+            //sets the image
+            image = Itemclass.getRandomImage();
         }
 
         public Item(ItemClass Itemclass, int Itemlevel, string Quality)
@@ -73,6 +76,8 @@ namespace RNGItems
             typeModifier = Itemclass.getRandomTypeModifier();
             //sets the color of the quality
             qualityColor = Itemclass.getColor(quality);
+            //sets the image
+            image = Itemclass.getRandomImage();
         }
 
         //replaces the default ToString to be a better visual
