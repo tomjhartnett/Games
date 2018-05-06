@@ -10,8 +10,5 @@ namespace RNGItems
     {
         public string type { get; private set; }
         public NameGenerator nameGenerator { get; private set; }
-
-
-        
     }
 }
