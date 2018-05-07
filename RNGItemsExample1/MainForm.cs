@@ -30,14 +30,14 @@ namespace RNGItemsExample1
 
         private void form_resize(object sender, EventArgs e)
         {
-            drawPanels();
+            initPanels();
         }
         
         private void drawPanels()
         {
+            drawBattle();
             drawInventory();
             drawCharacter();
-            drawBattle();
             Refresh();
         }
 
@@ -46,9 +46,9 @@ namespace RNGItemsExample1
             //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 
 
+            initBattle();
             initInventory();
             initCharacter();
-            initBattle();
             Refresh();
         }
 
@@ -57,6 +57,7 @@ namespace RNGItemsExample1
             if(!Controls.Contains(characterPanel))
                 Controls.Add(characterPanel);
             characterPanel.BackColor = Color.Gray;
+
             drawCharacter();
         }
 
@@ -64,7 +65,7 @@ namespace RNGItemsExample1
         {
             characterPanel.Controls.Clear();
             characterPanel.Height = Height;
-            characterPanel.Width = Width / 3;
+            characterPanel.Width = Width - (battlePanel.Width + inventoryPanel.Width);
             characterPanel.Location = new Point(inventoryPanel.Location.X + inventoryPanel.Width, 0);
         }
 
@@ -113,7 +114,7 @@ namespace RNGItemsExample1
 
         private void drawInventory()
         {
-            inventoryPanel.Width = Width - (battlePanel.Width + characterPanel.Width);
+            inventoryPanel.Width = Width / 3;
             inventoryPanel.Height = Height;
             inventoryPanel.Location = new Point(battlePanel.Location.X + battlePanel.Width, 0);
             inventoryPanel.Controls.Clear();

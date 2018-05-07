@@ -25,6 +25,7 @@ namespace RNGItems
             Image = i.image;
             AutoSize = true;
             TabStop = false;
+            FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             FlatStyle = FlatStyle.Flat;
             FlatAppearance.BorderSize = 0;
 

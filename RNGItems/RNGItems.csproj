@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmptyItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ImageLoader.cs" />
     <Compile Include="Item\Item.cs" />
     <Compile Include="Item\ItemButton.cs">
@@ -51,6 +54,9 @@
     <Compile Include="Item\TypeClass.cs" />
     <Compile Include="Item\ItemGenerator.cs" />
     <Compile Include="Item\ItemPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Item\TypedEmptyItem.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Stat\StandardStatGrowth.cs" />
