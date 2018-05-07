@@ -13,24 +13,24 @@ namespace RNGItems
     public class ItemGenerator
     {
         //all possible item classes
-        public List<ItemClass> itemClasses { get; private set; }
+        public List<TypeClass> itemClasses { get; private set; }
         //the random number generator for this generator
         private static Random rand = new Random(Guid.NewGuid().GetHashCode());
 
         //the project using this helper class must pass all possible itemclasses
-        public ItemGenerator(List<ItemClass> Itemclasses)
+        public ItemGenerator(List<TypeClass> Itemclasses)
         {
             itemClasses = Itemclasses;
         }
 
         //generates an item based on the passed info
-        public Item getRandomItem(ItemClass itemClass, int itemlevel, string quality)
+        public Item getRandomItem(TypeClass itemClass, int itemlevel, string quality)
         {
             return new Item(itemClass, itemlevel, quality);
         }
 
         //generates an item based on the passed info
-        public Item getRandomItem(ItemClass itemClass, int itemlevel)
+        public Item getRandomItem(TypeClass itemClass, int itemlevel)
         {
             return new Item(itemClass, itemlevel);
         }
@@ -42,7 +42,7 @@ namespace RNGItems
         }
 
         //returns a random class, based on equal weight on all available itemClasses
-        private ItemClass getRandomClass()
+        private TypeClass getRandomClass()
         {
             return itemClasses[rand.Next(0, itemClasses.Count)];
         }

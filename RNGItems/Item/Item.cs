@@ -33,7 +33,7 @@ namespace RNGItems
         public int qualityMult { get; set; }
         public Color qualityColor { get; protected set; }
 
-        public Item(ItemClass Itemclass, int Itemlevel)
+        public Item(TypeClass Itemclass, int Itemlevel)
         {
             //sets the textGenerator to call
             textGenerator = Itemclass.nameGenerator;
@@ -59,7 +59,7 @@ namespace RNGItems
             image = Itemclass.getRandomImage();
         }
 
-        public Item(ItemClass Itemclass, int Itemlevel, string Quality)
+        public Item(TypeClass Itemclass, int Itemlevel, string Quality)
         {
             //sets the textGenerator to call
             textGenerator = Itemclass.nameGenerator;

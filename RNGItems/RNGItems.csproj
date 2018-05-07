@@ -48,6 +48,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Item\ItemClass.cs" />
+    <Compile Include="Item\TypeClass.cs" />
     <Compile Include="Item\ItemGenerator.cs" />
     <Compile Include="Item\ItemPanel.cs">
       <SubType>Component</SubType>

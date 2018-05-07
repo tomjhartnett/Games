@@ -33,9 +33,9 @@ namespace Test
             Dictionary<string, List<Bitmap>> images = ImageLoader.getTypesAndImages(@"..\\..\\Images");
 
             //typesAndNames is all of our itemClasses for this project
-            List<ItemClass> typesAndNames = new List<ItemClass>();
+            List<TypeClass> typesAndNames = new List<TypeClass>();
             //the ring is generated from the default item class because it has no special display/stats/etc
-            ItemClass ring = new ItemClass("Ring", new TextGenerator("..\\..\\names\\ring.txt"), new List<string>() { }, qualities, images["finger"], 
+            TypeClass ring = new TypeClass("Ring", new TextGenerator("..\\..\\names\\ring.txt"), new List<string>() { }, qualities, images["finger"], 
                 new List<Stat>() { getRandomStandardGrowthStat("Intelligence") }, 
                 new List<Stat>() { getRandomStandardGrowthStat("Strength"), getRandomStandardGrowthStat("Stamina") }, 
                 new List<Stat>() { }, 

@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fightPanel = new System.Windows.Forms.Panel();
+            this.battlePanel = new System.Windows.Forms.Panel();
             this.inventoryPanel = new System.Windows.Forms.Panel();
             this.characterPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // fightPanel
             // 
-            this.fightPanel.Location = new System.Drawing.Point(41, 128);
-            this.fightPanel.Name = "fightPanel";
-            this.fightPanel.Size = new System.Drawing.Size(393, 719);
-            this.fightPanel.TabIndex = 0;
+            this.battlePanel.Location = new System.Drawing.Point(41, 128);
+            this.battlePanel.Name = "fightPanel";
+            this.battlePanel.Size = new System.Drawing.Size(393, 719);
+            this.battlePanel.TabIndex = 0;
             // 
             // inventoryPanel
             // 
@@ -61,7 +61,7 @@
             this.ClientSize = new System.Drawing.Size(1562, 1013);
             this.Controls.Add(this.characterPanel);
             this.Controls.Add(this.inventoryPanel);
-            this.Controls.Add(this.fightPanel);
+            this.Controls.Add(this.battlePanel);
             this.Name = "MainForm";
             this.Text = "RNGItems Example 1";
             this.ResumeLayout(false);
@@ -70,7 +70,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel fightPanel;
+        private System.Windows.Forms.Panel battlePanel;
         private System.Windows.Forms.Panel inventoryPanel;
         private System.Windows.Forms.Panel characterPanel;
     }
