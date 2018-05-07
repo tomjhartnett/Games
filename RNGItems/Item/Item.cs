@@ -110,7 +110,7 @@ namespace RNGItems
 
             foreach(Stat s in stats)
                 if (s.name.Equals(stat))
-                    total += s.getEvaluatedStat(qualityMult, itemLevel);
+                    total += s.getValue(qualityMult, itemLevel);
 
             return total;
         }

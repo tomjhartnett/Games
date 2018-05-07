@@ -15,6 +15,8 @@ namespace RNGItems
     {
         public string name { get; private set; }
         private StatFormula formula { get; set; }
+        private int amount { get; set; }
+        private bool evaluated = false;
 
         public Stat(string Name, StatFormula Formula)
         {
@@ -22,9 +24,15 @@ namespace RNGItems
             formula = Formula;
         }
 
-        public int getEvaluatedStat(int mult, int itemlevel)
+        public int getValue(int mult, int itemlevel)
         {
-            return formula.getRandomAmount(itemlevel) * mult;
+            if (!evaluated)
+            {
+                amount = formula.getRandomAmount(itemlevel) * mult;
+                evaluated = true;
+            }
+
+            return amount;
         }
     }
 }

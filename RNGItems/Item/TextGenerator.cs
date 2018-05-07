@@ -46,10 +46,10 @@ namespace RNGItems
             builder += $"{i.type}\n";
 
             foreach (Stat stat in i.statsGiven)
-                builder += $"+ {stat.getEvaluatedStat(i.qualityMult, i.itemLevel)} {stat.name}\n";
+                builder += $"+ {stat.getValue(i.qualityMult, i.itemLevel)} {stat.name}\n";
 
             foreach (Stat stat in i.requiredStats)
-                builder += $"Requires {stat.getEvaluatedStat(i.qualityMult, i.itemLevel)} {stat.name}\n";
+                builder += $"Requires {stat.getValue(i.qualityMult, i.itemLevel)} {stat.name}\n";
 
             return builder;
         }
@@ -70,10 +70,10 @@ namespace RNGItems
             ret.Add($"{i.type}");
 
             foreach (Stat stat in i.statsGiven)
-                ret.Add($"+ {stat.getEvaluatedStat(i.qualityMult, i.itemLevel)} {stat.name}");
+                ret.Add($"+ {stat.getValue(i.qualityMult, i.itemLevel)} {stat.name}");
 
             foreach (Stat stat in i.requiredStats)
-                ret.Add($"Requires {stat.getEvaluatedStat(i.qualityMult, i.itemLevel)} {stat.name}");
+                ret.Add($"Requires {stat.getValue(i.qualityMult, i.itemLevel)} {stat.name}");
 
             return ret;
         }
@@ -82,6 +82,7 @@ namespace RNGItems
         protected virtual List<Label> getLabels(Item i)
         {
             List<Label> ret = new List<Label>();
+            Font preferred = new Font("Arial", 15);
 
             int y = 0;
             int index = 0;
@@ -97,6 +98,7 @@ namespace RNGItems
 
                 Label l = getLabelFromSection(s, y, c);
                 y += l.Height;
+                l.Font = preferred;
                 ret.Add(l);
             }
 
@@ -107,6 +109,7 @@ namespace RNGItems
         protected virtual Label getLabelFromSection(string text, int y, Color c)
         {
             Label ret = new Label();
+            ret.Font = new Font("Arial", 15);
             ret.AutoSize = true;
             ret.ForeColor = c;
             ret.Text = text;

@@ -26,7 +26,7 @@ namespace RNGItems
             AutoSize = true;
 
             //back color to grey
-            BackColor = Color.Gray;
+            BackColor = Color.LightSlateGray;
             int height = 0;
             int maxwidth = 0;
             //go through each label to add to panel
