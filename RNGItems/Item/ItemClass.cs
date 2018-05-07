@@ -122,6 +122,8 @@ namespace RNGItems
             return ret;
         }
 
+        //returns the quality multiplier for stat calculations
+        //most children should override this
         public virtual int getQualityMultiplier(string quality)
         {
             return qualities.IndexOf(quality) + 1;

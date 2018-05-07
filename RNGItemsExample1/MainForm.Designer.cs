@@ -63,7 +63,7 @@
             this.Controls.Add(this.inventoryPanel);
             this.Controls.Add(this.fightPanel);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "RNGItems Example 1";
             this.ResumeLayout(false);
 
         }

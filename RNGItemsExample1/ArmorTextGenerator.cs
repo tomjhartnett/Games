@@ -40,10 +40,11 @@ namespace RNGItemsExample1
             ret.Add($"Item Level {i.itemLevel}");
             ret.Add($"{i.type}");
 
-            ret.Add($"{i.getStat("armor", i.statsGiven)} Armor\n");
+            ret.Add($"{i.getStat("armor", i.statsGiven)} Armor");
 
             foreach (Stat stat in i.statsGiven)
-                ret.Add($"+ {stat.getValue(i)} {stat.name}");
+                if(!stat.name.Equals("Armor"))
+                    ret.Add($"+ {stat.getValue(i)} {stat.name}");
 
             foreach (Stat stat in i.requiredStats)
                 ret.Add($"Requires {stat.getValue(i)} {stat.name}");

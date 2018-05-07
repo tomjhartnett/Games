@@ -27,7 +27,7 @@ namespace RNGItemsExample1
 
         private void initPanels()
         {
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 
             this.KeyDown += keyDown;
 
@@ -38,7 +38,7 @@ namespace RNGItemsExample1
 
         private void drawCharacter()
         {
-            //characterPanel.BackColor = Color.Red;
+            characterPanel.BackColor = Color.Gray;
             characterPanel.Width = Width / 3;
             characterPanel.Height = Height;
             characterPanel.Location = new Point((Width * 2) / 3, 0);
