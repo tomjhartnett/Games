@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RNGItems", "RNGItems\RNGIte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{BED61996-DA2D-4000-B18E-F6470BECCB25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RNGItemsExample1", "RNGItemsExample1\RNGItemsExample1.csproj", "{26459348-EF8D-4526-806B-BE87DA0210A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BED61996-DA2D-4000-B18E-F6470BECCB25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BED61996-DA2D-4000-B18E-F6470BECCB25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BED61996-DA2D-4000-B18E-F6470BECCB25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26459348-EF8D-4526-806B-BE87DA0210A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26459348-EF8D-4526-806B-BE87DA0210A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26459348-EF8D-4526-806B-BE87DA0210A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26459348-EF8D-4526-806B-BE87DA0210A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

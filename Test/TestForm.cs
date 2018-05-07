@@ -35,7 +35,7 @@ namespace Test
             //typesAndNames is all of our itemClasses for this project
             List<ItemClass> typesAndNames = new List<ItemClass>();
             //the ring is generated from the default item class because it has no special display/stats/etc
-            ItemClass ring = new ItemClass("Ring", new RingNameGenerator(), new List<string>() { }, qualities, images["finger"], 
+            ItemClass ring = new ItemClass("Ring", new TextGenerator("..\\..\\names\\ring.txt"), new List<string>() { }, qualities, images["finger"], 
                 new List<Stat>() { getRandomStandardGrowthStat("Intelligence") }, 
                 new List<Stat>() { getRandomStandardGrowthStat("Strength"), getRandomStandardGrowthStat("Stamina") }, 
                 new List<Stat>() { }, 

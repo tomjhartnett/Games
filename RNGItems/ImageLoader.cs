@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test
+namespace RNGItems
 {
     public static class ImageLoader
     {
@@ -15,14 +15,14 @@ namespace Test
         public static Dictionary<string, List<Bitmap>> getTypesAndImages(string path)
         {
             Dictionary<string, List<Bitmap>> ret = new Dictionary<string, List<Bitmap>>();
-        
+
             var directories = Directory.GetDirectories(path);
 
             foreach (string s in directories)
             {
-                ret.Add(s.Substring(s.LastIndexOf('\\')+1), new List<Bitmap>());
+                ret.Add(s.Substring(s.LastIndexOf('\\') + 1), new List<Bitmap>());
                 foreach (string imagepath in Directory.GetFiles(s))
-                    ret[s.Substring(s.LastIndexOf('\\')+1)].Add(new Bitmap(imagepath));
+                    ret[s.Substring(s.LastIndexOf('\\') + 1)].Add(new Bitmap(imagepath));
             }
 
             return ret;

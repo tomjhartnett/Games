@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImageLoader.cs" />
     <Compile Include="Item\Item.cs" />
     <Compile Include="Item\ItemButton.cs">
       <SubType>Component</SubType>
