@@ -14,22 +14,18 @@ namespace RNGItems
     //most should be modified for a unique feel
     public class TextGenerator
     {
-        private Random rand { get; set; }
+        private static Random rand = new Random(Guid.NewGuid().GetHashCode());
         private List<string> names;
 
         //initialize the random, as well as add names
         public TextGenerator(List<string> Names)
         {
-            rand = new Random(Guid.NewGuid().GetHashCode());
-
             names = Names;
         }
 
         //initialize the random, as well as add names
         public TextGenerator(string path)
         {
-            rand = new Random(Guid.NewGuid().GetHashCode());
-
             names = File.ReadAllLines(path).ToList();
         }
 

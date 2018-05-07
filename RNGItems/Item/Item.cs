@@ -109,7 +109,7 @@ namespace RNGItems
             int total = 0;
 
             foreach(Stat s in stats)
-                if (s.name.Equals(stat))
+                if (s.name.ToLower().Equals(stat.ToLower()))
                     total += s.getValue(qualityMult, itemLevel);
 
             return total;

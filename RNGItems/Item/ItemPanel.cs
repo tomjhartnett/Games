@@ -57,8 +57,17 @@ namespace RNGItems
             //gets the mouse position relative to the button (0,0 means mouse in top left of button)
             Point position = button.PointToClient(Cursor.Position);
 
+            //the location we want to move to
+            Point proposedLocation = new Point(button.Parent.PointToClient(Cursor.Position).X + Cursor.Size.Width, button.Parent.PointToClient(Cursor.Position).Y + Cursor.Size.Height);
+            //make sure it doesn't go off the panel
+            while (proposedLocation.X + Width > button.Parent.Width)
+                proposedLocation = new Point(proposedLocation.X - 1, proposedLocation.Y);
+            while (proposedLocation.Y + Height > button.Parent.Height)
+                proposedLocation = new Point(proposedLocation.X, proposedLocation.Y - 1);
+
             //sets this location to bottom right of the cursor
-            this.Location = new Point(button.Parent.PointToClient(Cursor.Position).X + Cursor.Size.Width, button.Parent.PointToClient(Cursor.Position).Y + Cursor.Size.Height);
+            this.Location = proposedLocation;
+
 
             //if the mouse is in the button, set isIn to true
             if (position.X > 0 && position.Y > 0 && position.X < button.Width && position.Y < button.Height)

@@ -52,6 +52,7 @@
     <Compile Include="Item\ItemPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Stat\StandardStatGrowth.cs" />
     <Compile Include="Stat\StatFormula.cs" />
     <Compile Include="Item\TextGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

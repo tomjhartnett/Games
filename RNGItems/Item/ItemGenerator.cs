@@ -15,7 +15,7 @@ namespace RNGItems
         //all possible item classes
         public List<ItemClass> itemClasses { get; private set; }
         //the random number generator for this generator
-        private Random rand = new Random(Guid.NewGuid().GetHashCode());
+        private static Random rand = new Random(Guid.NewGuid().GetHashCode());
 
         //the project using this helper class must pass all possible itemclasses
         public ItemGenerator(List<ItemClass> Itemclasses)

@@ -14,7 +14,7 @@ namespace RNGItems
     public class Stat
     {
         public string name { get; private set; }
-        private StatFormula formula { get; set; }
+        public StatFormula formula { get; private set; }
         private int amount { get; set; }
         private bool evaluated = false;
 
@@ -22,6 +22,12 @@ namespace RNGItems
         {
             name = Name;
             formula = Formula;
+        }
+
+        public Stat(Stat s)
+        {
+            name = s.name;
+            formula = s.formula;
         }
 
         public int getValue(int mult, int itemlevel)

@@ -32,7 +32,7 @@ namespace RNGItems
         //the stats that are always required to wear this item
         private List<Stat> requiredRequired { get; set; }
         //our random number generator
-        private Random rand = new Random(Guid.NewGuid().GetHashCode());
+        private static Random rand = new Random(Guid.NewGuid().GetHashCode());
         
         public ItemClass(string Type, TextGenerator Namegenerator, List<string> Typemodifier, List<string> Qualities, List<Bitmap> possibleImages, List<Stat> Possiblerequired, List<Stat> Possiblegiven, List<Stat> Requiredrequired, List<Stat> Requiredgiven)
         {
@@ -54,11 +54,11 @@ namespace RNGItems
             List<Stat> ret = new List<Stat>();
 
             foreach (Stat s in requiredGiven)
-                ret.Add(s);
+                ret.Add(new Stat(s));
 
             foreach (Stat s in possibleGiven)
                 if(rand.Next(0, 2) == 0)
-                    ret.Add(s);
+                    ret.Add(new Stat(s));
 
             return ret;
         }
@@ -70,11 +70,11 @@ namespace RNGItems
             List<Stat> ret = new List<Stat>();
 
             foreach (Stat s in requiredRequired)
-                ret.Add(s);
+                ret.Add(new Stat(s));
 
             foreach (Stat s in possibleRequired)
                 if (rand.Next(0, 2) == 0)
-                    ret.Add(s);
+                    ret.Add(new Stat(s));
 
             return ret;
         }
