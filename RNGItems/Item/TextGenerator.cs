@@ -38,6 +38,7 @@ namespace RNGItems
         {
             return names[rand.Next(0, names.Count)];
         }
+
         //generates the text for a ring
         public virtual string getText(Item i)
         {
@@ -46,16 +47,16 @@ namespace RNGItems
             builder += $"{i.type}\n";
 
             foreach (Stat stat in i.statsGiven)
-                builder += $"+ {stat.getValue(i.qualityMult, i.itemLevel)} {stat.name}\n";
+                builder += $"+ {stat.getValue(i)} {stat.name}\n";
 
             foreach (Stat stat in i.requiredStats)
-                builder += $"Requires {stat.getValue(i.qualityMult, i.itemLevel)} {stat.name}\n";
+                builder += $"Requires {stat.getValue(i)} {stat.name}\n";
 
             return builder;
         }
 
         //generates a panel that describes this item
-        public virtual Panel getPanel(Item item, Button button)
+        public Panel getPanel(Item item, Button button)
         {
             return new ItemPanel(item, button, getLabels(item));
         }
@@ -70,10 +71,10 @@ namespace RNGItems
             ret.Add($"{i.type}");
 
             foreach (Stat stat in i.statsGiven)
-                ret.Add($"+ {stat.getValue(i.qualityMult, i.itemLevel)} {stat.name}");
+                ret.Add($"+ {stat.getValue(i)} {stat.name}");
 
             foreach (Stat stat in i.requiredStats)
-                ret.Add($"Requires {stat.getValue(i.qualityMult, i.itemLevel)} {stat.name}");
+                ret.Add($"Requires {stat.getValue(i)} {stat.name}");
 
             return ret;
         }
@@ -106,7 +107,7 @@ namespace RNGItems
         }
 
         //creates a label based on the passed text, y location, and foreColor c
-        protected virtual Label getLabelFromSection(string text, int y, Color c)
+        protected Label getLabelFromSection(string text, int y, Color c)
         {
             Label ret = new Label();
             ret.Font = new Font("Arial", 15);

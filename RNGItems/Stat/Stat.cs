@@ -9,7 +9,7 @@ namespace RNGItems
     /*
      * This class represents a Stat.
      * It requires a name and a formula.
-     * The default amount is 0, and when evaluated, will get a number based on the formula and multiplier.
+     * The is assigned a number based on the formula and multiplier, initialized when first called.
      */
     public class Stat
     {
@@ -29,6 +29,17 @@ namespace RNGItems
             if (!evaluated)
             {
                 amount = formula.getRandomAmount(itemlevel) * mult;
+                evaluated = true;
+            }
+
+            return amount;
+        }
+
+        public int getValue(Item item)
+        {
+            if (!evaluated)
+            {
+                amount = formula.getRandomAmount(item.itemLevel) * item.qualityMult;
                 evaluated = true;
             }
 

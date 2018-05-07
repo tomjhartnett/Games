@@ -10,31 +10,45 @@ namespace RNGItemsExample1
 {
     public class ArmorTextGenerator : TextGenerator
     {
+        public ArmorTextGenerator(string path) : base(path)
+        {}
+
+        //returns the text as a string
         public override string getText(Item i)
         {
             string builder = $"{i.name}\n";
             builder += $"Item Level {i.itemLevel}\n";
             builder += $"{i.type} {i.typeModifier}\n";
 
-            builder += $"{i.getStat("armor")} Armor\n";
+            builder += $"{i.getStat("armor", i.statsGiven)} Armor\n";
 
             foreach (Stat stat in i.statsGiven)
-                builder += $"+ {stat.amount} {stat.name}\n";
+                builder += $"+ {stat.getValue(i)} {stat.name}\n";
 
             foreach (Stat stat in i.requiredStats)
-                builder += $"Requires {stat.amount} {stat.name}\n";
+                builder += $"Requires {stat.getValue(i)} {stat.name}\n";
 
             return builder;
         }
 
-        public override Panel getPanel(Item i, Button b)
+        //returns a list of strings that are the same as what is returned in getText, but split by newlines
+        protected override List<string> getStrings(Item i)
         {
-            throw new NotImplementedException();
-        }
+            List<string> ret = new List<string>();
 
-        public override string getName()
-        {
-            throw new NotImplementedException();
+            ret.Add(i.name);
+            ret.Add($"Item Level {i.itemLevel}");
+            ret.Add($"{i.type}");
+
+            ret.Add($"{i.getStat("armor", i.statsGiven)} Armor\n");
+
+            foreach (Stat stat in i.statsGiven)
+                ret.Add($"+ {stat.getValue(i)} {stat.name}");
+
+            foreach (Stat stat in i.requiredStats)
+                ret.Add($"Requires {stat.getValue(i)} {stat.name}");
+
+            return ret;
         }
     }
 }
