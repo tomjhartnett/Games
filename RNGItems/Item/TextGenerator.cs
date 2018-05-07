@@ -46,10 +46,10 @@ namespace RNGItems
             builder += $"{i.type}\n";
 
             foreach (Stat stat in i.statsGiven)
-                builder += $"+ {stat.amount} {stat.name}\n";
+                builder += $"+ {stat.getEvaluatedStat(i.qualityMult, i.itemLevel)} {stat.name}\n";
 
             foreach (Stat stat in i.requiredStats)
-                builder += $"Requires {stat.amount} {stat.name}\n";
+                builder += $"Requires {stat.getEvaluatedStat(i.qualityMult, i.itemLevel)} {stat.name}\n";
 
             return builder;
         }
@@ -70,10 +70,10 @@ namespace RNGItems
             ret.Add($"{i.type}");
 
             foreach (Stat stat in i.statsGiven)
-                ret.Add($"+ {stat.amount} {stat.name}");
+                ret.Add($"+ {stat.getEvaluatedStat(i.qualityMult, i.itemLevel)} {stat.name}");
 
             foreach (Stat stat in i.requiredStats)
-                ret.Add($"Requires {stat.amount} {stat.name}");
+                ret.Add($"Requires {stat.getEvaluatedStat(i.qualityMult, i.itemLevel)} {stat.name}");
 
             return ret;
         }

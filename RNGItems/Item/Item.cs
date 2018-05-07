@@ -23,13 +23,14 @@ namespace RNGItems
     {
         public List<Stat> statsGiven { get; protected set; }
         public List<Stat> requiredStats { get; protected set; }
-        private TextGenerator textGenerator { get; set; }
+        protected TextGenerator textGenerator { get; set; }
         public string name { get; protected set; }
         public string type { get; protected set; }
         public string typeModifier { get; protected set; }
         public Bitmap image { get; protected set; }
         public int itemLevel { get; protected set; }
         public string quality { get; protected set; }
+        public int qualityMult { get; set; }
         public Color qualityColor { get; protected set; }
 
         public Item(ItemClass Itemclass, int Itemlevel)
@@ -42,6 +43,8 @@ namespace RNGItems
             itemLevel = Itemlevel;
             //gets a random quality
             quality = Itemclass.getRandomQuality();
+            //gets a random quality
+            qualityMult = Itemclass.getQualityMultiplier(quality);
             //gets random stats bestowed on wearer
             statsGiven = Itemclass.getRandomStatsGiven(Itemlevel, quality, itemLevel);
             //gets random stats required to wear the item
@@ -66,6 +69,8 @@ namespace RNGItems
             itemLevel = Itemlevel;
             //sets the quality
             quality = Quality;
+            //gets a random quality
+            qualityMult = Itemclass.getQualityMultiplier(quality);
             //gets random stats bestowed on wearer
             statsGiven = Itemclass.getRandomStatsGiven(Itemlevel, quality, itemLevel);
             //gets random stats required to wear the item
@@ -96,6 +101,18 @@ namespace RNGItems
         public ItemButton getButton()
         {
             return new ItemButton(this);
+        }
+        
+        //calculates how much of a stat value is in a list of stats
+        public int getStat(string stat, List<Stat> stats)
+        {
+            int total = 0;
+
+            foreach(Stat s in stats)
+                if (s.name.Equals(stat))
+                    total += s.getEvaluatedStat(qualityMult, itemLevel);
+
+            return total;
         }
     }
 }

@@ -60,9 +60,6 @@ namespace RNGItems
                 if(rand.Next(0, 2) == 0)
                     ret.Add(s);
 
-            foreach (Stat s in ret)
-                s.evaluateStat(qualities.IndexOf(quality) + 1, itemlevel);
-
             return ret;
         }
 
@@ -78,9 +75,6 @@ namespace RNGItems
             foreach (Stat s in possibleRequired)
                 if (rand.Next(0, 2) == 0)
                     ret.Add(s);
-            
-            foreach (Stat s in ret)
-                s.evaluateStat(qualities.IndexOf(quality) + 1, itemlevel);
 
             return ret;
         }
@@ -126,6 +120,11 @@ namespace RNGItems
             }
 
             return ret;
+        }
+
+        public virtual int getQualityMultiplier(string quality)
+        {
+            return qualities.IndexOf(quality) + 1;
         }
     }
 }

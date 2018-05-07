@@ -12,7 +12,19 @@ namespace RNGItemsExample1
     {
         public override string getText(Item i)
         {
-            throw new NotImplementedException();
+            string builder = $"{i.name}\n";
+            builder += $"Item Level {i.itemLevel}\n";
+            builder += $"{i.type} {i.typeModifier}\n";
+
+            builder += $"{i.getStat("armor")} Armor\n";
+
+            foreach (Stat stat in i.statsGiven)
+                builder += $"+ {stat.amount} {stat.name}\n";
+
+            foreach (Stat stat in i.requiredStats)
+                builder += $"Requires {stat.amount} {stat.name}\n";
+
+            return builder;
         }
 
         public override Panel getPanel(Item i, Button b)

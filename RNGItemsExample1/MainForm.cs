@@ -66,9 +66,9 @@ namespace RNGItemsExample1
             Dictionary<string, List<Bitmap>> typesAndImages = ImageLoader.getTypesAndImages(@"..\\..\\Images");
 
             List<ItemClass> itemClasses = new List<ItemClass>();
-            ItemClass back = new ItemClass("back")
-
-            itemGenerator = new ItemGenerator();
+            ItemClass back = new ItemClass("back");
+            itemClasses.Add(back);
+            itemGenerator = new ItemGenerator(itemClasses);
         }
 
         //form key down event

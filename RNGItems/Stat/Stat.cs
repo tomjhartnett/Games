@@ -14,19 +14,17 @@ namespace RNGItems
     public class Stat
     {
         public string name { get; private set; }
-        public int amount { get; private set; }
         private StatFormula formula { get; set; }
 
         public Stat(string Name, StatFormula Formula)
         {
             name = Name;
             formula = Formula;
-            amount = 0;
         }
 
-        public void evaluateStat(int mult, int itemlevel)
+        public int getEvaluatedStat(int mult, int itemlevel)
         {
-            amount = formula.getRandomAmount(itemlevel) * mult;
+            return formula.getRandomAmount(itemlevel) * mult;
         }
     }
 }
